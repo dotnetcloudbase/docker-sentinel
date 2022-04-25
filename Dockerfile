@@ -31,12 +31,13 @@ RUN rm -rf /etc/localtime \
 RUN mkdir -p ${SENTINEL_LOGS}
 
 # get the version
-RUN cd /  \
- && wget https://github.com/alibaba/Sentinel/releases/download/${SENTINEL_VERSION}/sentinel-dashboard-${SENTINEL_VERSION}.jar -O sentinel-dashboard.jar \
- && mv sentinel-dashboard.jar ${SENTINEL_HOME} \
- && chmod -R +x ${SENTINEL_HOME}/*jar
+# RUN cd /  \
+# && wget https://github.com/alibaba/Sentinel/releases/download/${SENTINEL_VERSION}/sentinel-dashboard-${SENTINEL_VERSION}.jar -O sentinel-dashboard.jar \
+# && mv sentinel-dashboard.jar ${SENTINEL_HOME} \
+# && chmod -R +x ${SENTINEL_HOME}/*jar
 # test file
-#COPY sentinel-dashboard.jar ${SENTINEL_HOME}
+COPY sentinel-dashboard.jar ${SENTINEL_HOME}
+RUN  chmod -R +x ${SENTINEL_HOME}/*jar 
 
 # add scripts
 COPY scripts/* /usr/local/bin/

@@ -50,11 +50,6 @@ https://github.com/alibaba/Sentinel
 
 [https://github.com/alibaba/Sentinel/wiki/新手指南](https://github.com/alibaba/Sentinel/wiki/%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97)
 
-
-
-
-
-
 # 根据 Dockerfile 自己编译
 
 编译镜像
@@ -70,6 +65,8 @@ docker run --rm --name sentinel -p 8280:8280 geffzhang/sentinel:1.8.4
 或
 docker run --rm -e JAVA_OPT_EXT="-Dserver.port=8280 -Dcsp.sentinel.dashboard.server=localhost:8280 -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom" --name sentinel -p 8280:8280 geffzhang/sentinel:1.8.4
 ````
+
+在windows 下构建的镜像可能出现 [docker启动报错：standard_init_linux.go:211: exec user process caused "no such file or directory"](https://blog.csdn.net/feinifi/article/details/102910715)
 
 
 
